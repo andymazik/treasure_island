@@ -11,16 +11,6 @@ public class Duck extends Herbivore{
     }
 
     @Override
-    public void eat(Set<entities.Herbivore> grass) {
-
-    }
-
-    @Override
-    public boolean move(Cell cell) {
-        return super.move(cell);
-    }
-
-    @Override
     public void multiply() {
 
     }

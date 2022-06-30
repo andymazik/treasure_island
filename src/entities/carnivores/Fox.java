@@ -1,6 +1,5 @@
 package entities.carnivores;
 
-import entities.Herbivore;
 import entities.prefs.Fields;
 import field.Cell;
 
@@ -10,11 +9,6 @@ import java.util.Set;
 public class Fox extends Carnivore{
     public Fox(Fields fields) {
         super(fields);
-    }
-
-    @Override
-    public void eat(Set<Herbivore> herbivores) {
-
     }
 
     @Override

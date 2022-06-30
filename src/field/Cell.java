@@ -1,8 +1,9 @@
 package field;
 
-import entities.Herbivore;
+import entities.Alive;
 import entities.Organism;
 import entities.carnivores.Carnivore;
+import entities.herbivores.Herbivore;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,61 +19,35 @@ public class Cell {
         this.col = col;
     }
 
-    public Map<Organism, Set<Herbivore>> sets = new HashMap<>();
-
-//    List<Herbivore> herbivores = new ArrayList<>();
-//    List<Carnivore> carnivores = new ArrayList<>();
-//    List<Plant> plants = new ArrayList<>();
+    public Map<Organism, Set<Alive>> sets = new HashMap<>();
 
     public void calculate() {
-        for (Map.Entry<Organism, Set<Herbivore>> pair : sets.entrySet()) {
-            Set<Herbivore> animalSet = pair.getValue();
-            for (Herbivore animal : animalSet) {
-                if (animal instanceof Carnivore) { //Слабое место. Нужно переделать чтобы для каждого объекта не вызывать instanceof
-                    Organism[] herbivores = Organism.getHerbivores();
-                    for (int i = 0; i < herbivores.length; i++) {
-                        ((Carnivore) animal).eat(sets.get(herbivores[i]));
-                    }
+        //Логика еды
+//        for (Map.Entry<Organism, Set<Alive>> pair : sets.entrySet()) {
+//            Set<Alive> aliveSet = pair.getValue();
+//            for (Alive alive : aliveSet) {
+//                if (alive instanceof Carnivore) { //Слабое место. Нужно переделать чтобы для каждого объекта не вызывать instanceof
+//                    Organism[] herbivores = Organism.getHerbivores();
+//                    for (int i = 0; i < herbivores.length; i++) {
+//                        ((Carnivore) alive).eat(sets.get(herbivores[i]));
+//                    }
+//
+//                } else if (alive instanceof Herbivore) {
+//                    ((entities.herbivores.Herbivore) alive).eat(sets.get(Organism.PLANT));
+//                }
+//            }
+//        }
 
-                } else if (animal instanceof entities.herbivores.Herbivore) {
-                    ((entities.herbivores.Herbivore) animal).eat(sets.get(Organism.PLANT));
-                }
-            }
-        }
-
-        for (Map.Entry<Organism, Set<Herbivore>> pair : sets.entrySet()) {
-            Set<Herbivore> animalSet = pair.getValue();
-            Iterator<Herbivore> iterator = animalSet.iterator();
+        //Логика передвижения
+        for (Map.Entry<Organism, Set<Alive>> pair : sets.entrySet()) {
+            Set<Alive> aliveSet = pair.getValue();
+            Iterator<Alive> iterator = aliveSet.iterator();
             while (iterator.hasNext()) {
-                Herbivore animal = iterator.next();
-                boolean isMove = animal.move(this);
+                Alive alive = iterator.next();
+                boolean isMove = alive.move(this);
                 if (isMove) iterator.remove();
             }
         }
-
-
-
-//        for (Map.Entry<Organism, Set<Animal>> pair : sets.entrySet()) {
-//            Set<Animal> animalSet = pair.getValue();
-//            for (Animal animal : animalSet) {
-//                boolean isMoved = animal.move(this);
-//                //if (isMoved) animalSet.remove(animal);
-//            }
-//        }
-//        for (int i = 0; i < carnivores.size(); i++) {
-//            Carnivore carnivore = carnivores.get(i);
-//            carnivore.eat(herbivores);
-//            carnivore.multiply();
-//            carnivore.move();
-//        }
-//
-//        for (int i = 0; i < herbivores.size(); i++) {
-//            Herbivore herbivore = herbivores.get(i);
-//            herbivore.eat(plants.get(i));
-//            herbivore.multiply();
-//            herbivore.move();
-//
-//        }
     }
 
     public int getRow() {

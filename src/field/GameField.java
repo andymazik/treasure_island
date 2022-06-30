@@ -1,6 +1,6 @@
 package field;
 
-import entities.Herbivore;
+import entities.Alive;
 import entities.Organism;
 import entities.carnivores.*;
 import entities.herbivores.*;
@@ -14,15 +14,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GameField {
     public static Cell[][] field = new Cell[GamePreferences.row][GamePreferences.col];
 
-
+    //Инициализируем массив ячеек
     public void initialize() {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 field[i][j] = new Cell(i, j);
             }
         }
-    } //Инициализируем массив ячеек
+    }
 
+    //Заселяем массив животными и растениями.
     public void setLive(){
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
@@ -44,7 +45,7 @@ public class GameField {
                 {
                     //Создаем медведя
                     int num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.BEAR).getMaxCount());
-                    Set<Herbivore> typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
+                    Set<Alive> typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
                     for (int k = 0; k < num; k++) {
                         typeSet.add(new Bear(GamePreferences.getInstance().getMap().get(Organism.BEAR))); //Заполняем его животными нужного вида
                     }
@@ -127,7 +128,7 @@ public class GameField {
                     typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
 
                     for (int k = 0; k < num; k++) {
-                        typeSet.add(new Hamster(GamePreferences.getInstance().getMap().get(Organism.MOUSE))); //Заполняем его животными нужного вида
+                        typeSet.add(new Mouse(GamePreferences.getInstance().getMap().get(Organism.MOUSE))); //Заполняем его животными нужного вида
                     }
                     field[i][j].sets.put(Organism.MOUSE, typeSet);
 
@@ -145,7 +146,7 @@ public class GameField {
                     typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
 
                     for (int k = 0; k < num; k++) {
-                        typeSet.add(new Kengoo(GamePreferences.getInstance().getMap().get(Organism.RABBIT))); //Заполняем его животными нужного вида
+                        typeSet.add(new Rabbit(GamePreferences.getInstance().getMap().get(Organism.RABBIT))); //Заполняем его животными нужного вида
                     }
                     field[i][j].sets.put(Organism.RABBIT, typeSet);
 
@@ -160,8 +161,9 @@ public class GameField {
                 }
             }
         }
-    } //Спойлер. Заселяем массив животными и растениями.
+    }
 
+    //Выводим на экран порядковые номера ячеек.
     public void print() {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
@@ -169,7 +171,7 @@ public class GameField {
             }
             System.out.println();
         }
-    } //Выводим на экран порядковые номера ячеек.
+    }
 
     public void printInfo(){
         for (int i = 0; i < field.length; i++) {
@@ -184,9 +186,9 @@ public class GameField {
 
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
-                Map<Organism, Set<Herbivore>> map = field[i][j].sets;
-                for (Set<Herbivore> value : map.values()) {
-                    for (Herbivore animal : value) {
+                Map<Organism, Set<Alive>> map = field[i][j].sets;
+                for (Set<Alive> value : map.values()) {
+                    for (Alive alive : value) {
                         totalCount++;
                     }
                 }

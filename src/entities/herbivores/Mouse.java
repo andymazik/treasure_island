@@ -1,13 +1,10 @@
 package entities.herbivores;
 
 import entities.prefs.Fields;
-import field.Cell;
-
-import java.util.Set;
 
 
-public class Deer extends Herbivore{
-    public Deer(Fields fields) {
+public class Mouse extends Herbivore{
+    public Mouse(Fields fields) {
         super(fields);
     }
 
@@ -15,4 +12,5 @@ public class Deer extends Herbivore{
     public void multiply() {
 
     }
+
 }

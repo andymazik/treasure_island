@@ -7,7 +7,7 @@ import field.GameField;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Herbivore {
+public abstract class Alive {
     private final String name;
     private final String icon;
     private final double startWeight;
@@ -17,7 +17,7 @@ public abstract class Herbivore {
     private final int maxSpeed;
     private final double maxFood;
 
-    public Herbivore(Fields fields) {
+    public Alive(Fields fields) {
         this.name = fields.getName();
         this.icon = fields.getIcon();
         this.startWeight = fields.getStartWeight();

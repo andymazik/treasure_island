@@ -4,7 +4,7 @@ import entities.prefs.Fields;
 import field.Cell;
 
 
-public class Plant extends Herbivore {
+public class Plant extends Alive {
     public Plant(Fields fields) {
         super(fields);
     }
