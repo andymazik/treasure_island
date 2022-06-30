@@ -41,7 +41,7 @@ public abstract class Alive {
         if (newRow >= GamePreferences.row || newCol >= GamePreferences.col || newRow < 0 || newCol < 0) {
             isMove = false;
         }
-
+        //Если новые координаты совпадают со старыми, животные остаются на месте
         if (newRow == cell.getRow() && newCol == cell.getCol()){
             isMove = false;
         }

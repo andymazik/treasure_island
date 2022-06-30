@@ -2,6 +2,7 @@ package field;
 
 import entities.Alive;
 import entities.Organism;
+import entities.Plant;
 import entities.carnivores.*;
 import entities.herbivores.*;
 import entities.prefs.GamePreferences;
@@ -158,6 +159,15 @@ public class GameField {
                         typeSet.add(new Sheep(GamePreferences.getInstance().getMap().get(Organism.SHEEP))); //Заполняем его животными нужного вида
                     }
                     field[i][j].sets.put(Organism.SHEEP, typeSet);
+
+                    //Создаем траву
+                    num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.PLANT).getMaxCount());
+                    typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
+
+                    for (int k = 0; k < num; k++) {
+                        typeSet.add(new Plant(GamePreferences.getInstance().getMap().get(Organism.PLANT))); //Заполняем его животными нужного вида
+                    }
+                    field[i][j].sets.put(Organism.PLANT, typeSet);
                 }
             }
         }
@@ -174,14 +184,14 @@ public class GameField {
     }
 
     public void printInfo(){
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                System.out.print(field[i][j] + "\t");
-                System.out.print(field[i][j].sets);
-                System.out.println();
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i < field.length; i++) {
+//            for (int j = 0; j < field[i].length; j++) {
+//                System.out.print(field[i][j] + "\t");
+//                System.out.print(field[i][j].sets);
+//                System.out.println();
+//            }
+//            System.out.println();
+//        }
         int totalCount = 0;
 
         for (int i = 0; i < field.length; i++) {
