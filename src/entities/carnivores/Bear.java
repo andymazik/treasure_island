@@ -1,6 +1,6 @@
 package entities.carnivores;
 
-import entities.Animal;
+import entities.Herbivore;
 import entities.prefs.Fields;
 
 import java.util.Set;
@@ -21,7 +21,7 @@ public class Bear extends Carnivore{
     }
 
     @Override
-    public void eat(Set<Animal> herbivores) {
+    public void eat(Set<Herbivore> herbivores) {
 
     }
 

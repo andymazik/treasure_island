@@ -1,17 +1,18 @@
 package field;
 
-import entities.Animal;
+import entities.Herbivore;
 import entities.Organism;
 import entities.carnivores.*;
 import entities.herbivores.*;
 import entities.prefs.GamePreferences;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameField {
-    public static Cell[][] field = new Cell[30][30];
+    public static Cell[][] field = new Cell[GamePreferences.row][GamePreferences.col];
 
 
     public void initialize() {
@@ -43,7 +44,7 @@ public class GameField {
                 {
                     //Создаем медведя
                     int num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.BEAR).getMaxCount());
-                    Set<Animal> typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
+                    Set<Herbivore> typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
                     for (int k = 0; k < num; k++) {
                         typeSet.add(new Bear(GamePreferences.getInstance().getMap().get(Organism.BEAR))); //Заполняем его животными нужного вида
                     }
@@ -122,13 +123,13 @@ public class GameField {
                     field[i][j].sets.put(Organism.DUCK, typeSet);
 
                     //Создаем хомяка
-                    num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.HAMSTER).getMaxCount());
+                    num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.MOUSE).getMaxCount());
                     typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
 
                     for (int k = 0; k < num; k++) {
-                        typeSet.add(new Hamster(GamePreferences.getInstance().getMap().get(Organism.HAMSTER))); //Заполняем его животными нужного вида
+                        typeSet.add(new Hamster(GamePreferences.getInstance().getMap().get(Organism.MOUSE))); //Заполняем его животными нужного вида
                     }
-                    field[i][j].sets.put(Organism.HAMSTER, typeSet);
+                    field[i][j].sets.put(Organism.MOUSE, typeSet);
 
                     //Создаем лошадь
                     num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.HORSE).getMaxCount());
@@ -140,13 +141,13 @@ public class GameField {
                     field[i][j].sets.put(Organism.HORSE, typeSet);
 
                     //Создаем кенгуру
-                    num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.KENGOO).getMaxCount());
+                    num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.RABBIT).getMaxCount());
                     typeSet = new HashSet<>(); //Создаем сет с необходимым кол-вом животных
 
                     for (int k = 0; k < num; k++) {
-                        typeSet.add(new Kengoo(GamePreferences.getInstance().getMap().get(Organism.KENGOO))); //Заполняем его животными нужного вида
+                        typeSet.add(new Kengoo(GamePreferences.getInstance().getMap().get(Organism.RABBIT))); //Заполняем его животными нужного вида
                     }
-                    field[i][j].sets.put(Organism.KENGOO, typeSet);
+                    field[i][j].sets.put(Organism.RABBIT, typeSet);
 
                     //Создаем овцу
                     num = ThreadLocalRandom.current().nextInt(0, GamePreferences.getInstance().getMap().get(Organism.SHEEP).getMaxCount());
@@ -179,6 +180,20 @@ public class GameField {
             }
             System.out.println();
         }
+        int totalCount = 0;
+
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                Map<Organism, Set<Herbivore>> map = field[i][j].sets;
+                for (Set<Herbivore> value : map.values()) {
+                    for (Herbivore animal : value) {
+                        totalCount++;
+                    }
+                }
+            }
+        }
+
+        System.out.println("Общее количество тварей на карте: " + totalCount);
     } //Выводим на экран состояние ячеек в текущий момент времени.
 
     public void makeStep(){

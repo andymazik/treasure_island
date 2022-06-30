@@ -11,8 +11,18 @@ public enum Organism {
     COW,
     DEER,
     DUCK,
-    HAMSTER,
+    MOUSE,
     HORSE,
-    KENGOO,
-    SHEEP
+    RABBIT,
+    SHEEP;
+
+    public static Organism[] getHerbivores() {
+        Organism[] herbivores = {CATERPILLAR, COW, DEER, DUCK, MOUSE, HORSE, RABBIT, SHEEP};
+        return herbivores;
+    }
+
+    public static Organism[] getCarnivores() {
+        Organism[] carnivores = {BEAR, EAGLE, FOX, SNAKE, WOLF};
+        return carnivores;
+    }
 }

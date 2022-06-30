@@ -1,6 +1,6 @@
 package entities.carnivores;
 
-import entities.Animal;
+import entities.Herbivore;
 import entities.prefs.Fields;
 import field.Cell;
 
@@ -13,7 +13,7 @@ public class Snake extends Carnivore{
     }
 
     @Override
-    public void eat(Set<Animal> herbivores) {
+    public void eat(Set<Herbivore> herbivores) {
 
     }
 
