@@ -27,8 +27,6 @@ public abstract class Alive {
         this.maxSpeed = fields.getMaxSpeed();
         this.maxFood = fields.getMaxFood();
     }
-
-
     public boolean move(Cell cell){
         int newRow = cell.getRow() + ThreadLocalRandom.current().nextInt(0,velocity*2) - velocity;//Вычисляем новые координаты нахождения животного.
         int newCol = cell.getCol() + ThreadLocalRandom.current().nextInt(0,velocity*2) - velocity;

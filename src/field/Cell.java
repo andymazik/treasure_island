@@ -48,12 +48,12 @@ public class Cell {
                     }
 
                 }
-//                else if (alive instanceof Herbivore) {
-//                    Set<Alive> plants = sets.get(Organism.PLANT);
-//                    //if (plants != null) {
-//                        ((Herbivore) alive).eat(plants);
-//                    //}
-//                }
+                else if (alive instanceof Herbivore) {
+                    Set<Alive> plants = sets.get(Organism.PLANT);
+                    if (plants != null) {
+                        ((Herbivore) alive).eat(plants);
+                    }
+                }
             }
         }
     }

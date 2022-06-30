@@ -8,7 +8,7 @@ public class Runner {
         GameField gameField = new GameField();
 
         gameField.initialize();
-        //gameField.print();
+        gameField.print();
         System.out.println("*************");
         gameField.setLive();
         gameField.printInfo();

@@ -20,9 +20,4 @@ public enum Organism {
         Organism[] herbivores = {CATERPILLAR, COW, DEER, DUCK, MOUSE, HORSE, RABBIT, SHEEP};
         return herbivores;
     }
-
-    public static Organism[] getCarnivores() {
-        Organism[] carnivores = {BEAR, EAGLE, FOX, SNAKE, WOLF};
-        return carnivores;
-    }
 }
