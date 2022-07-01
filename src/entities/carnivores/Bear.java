@@ -9,9 +9,4 @@ public class Bear extends Carnivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
 }

@@ -2,7 +2,6 @@ package field;
 
 import entities.Alive;
 import entities.Organism;
-import entities.Plant;
 import entities.carnivores.Carnivore;
 import entities.factory.AliveFactory;
 import entities.herbivores.Herbivore;
@@ -33,8 +32,6 @@ public class Cell {
 
         //Логика размножения
         multiply();
-
-
     }
 
     private void eat() {
@@ -71,6 +68,11 @@ public class Cell {
     }
 
     private void multiply() {
+        /*
+         Логика проста до безобразия: если каждой твари по паре, то у каждой пары рождается
+         по одному детенышу. То есть считаем общее поголовье в одной ячейке и увеличиваем его
+         в полтора раза в каждом такте.
+        */
         Iterator<Map.Entry<Organism, Set<Alive>>> iterator = sets.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<Organism, Set<Alive>> pair = iterator.next();
@@ -84,21 +86,6 @@ public class Cell {
                 }
             }
         }
-
-//        for (Map.Entry<Organism, Set<Alive>> pair : sets.entrySet()) {
-//            Set<Alive> aliveSet = pair.getValue();
-//            /*
-//            Логика проста до безобразия: если каждой твари по паре, то у каждой пары рождается
-//            по одному детенышу. То есть считаем общее поголовье в одной ячейке и увеличиваем его
-//            в полтора раза в каждом такте.
-//            */
-//            if (aliveSet.size()>1){
-//                for (int i = 0; i < aliveSet.size()/2; i++) {
-//                    aliveSet.add(AliveFactory.getInstance().getAlive(pair.getKey()));
-//                }
-//            }
-//
-//        }
     }
 
     public int getRow() {

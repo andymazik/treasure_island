@@ -12,9 +12,4 @@ public class Cow extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
 }

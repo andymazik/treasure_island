@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-
 public abstract class Carnivore extends Alive {
     public Carnivore(Fields fields) {
         super(fields);
@@ -26,9 +25,7 @@ public abstract class Carnivore extends Alive {
             int currentProbability = GamePreferences.getInstance().getProbabilities()[Organism.valueOf(this.getClass().getSimpleName().toUpperCase()).ordinal()][Organism.valueOf(alive.getClass().getSimpleName().toUpperCase()).ordinal()];
             if (randomNum < currentProbability) {
                 iterator.remove();
-                //System.out.println("REMOVED");
             }
         }
     }
-
 }

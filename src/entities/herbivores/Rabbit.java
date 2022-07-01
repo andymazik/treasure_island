@@ -7,13 +7,4 @@ public class Rabbit extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
-//    @Override
-//    public void eat(Plant plant) {
-//
-//    }
 }

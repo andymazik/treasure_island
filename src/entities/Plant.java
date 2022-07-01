@@ -14,8 +14,4 @@ public class Plant extends Alive {
         return false;
     }
 
-    @Override
-    public void multiply() {
-
-    }
 }

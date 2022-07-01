@@ -10,8 +10,4 @@ public class Sheep extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
 }

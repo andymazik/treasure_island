@@ -11,14 +11,4 @@ public class Fox extends Carnivore{
         super(fields);
     }
 
-    @Override
-    public boolean move(Cell cell) {
-        return super.move(cell);
-    }
-
-    @Override
-    public void multiply() {
-
-    }
-
 }

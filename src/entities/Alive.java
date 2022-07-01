@@ -50,7 +50,6 @@ public abstract class Alive {
         }
         return isMove;
     }
-    public abstract void multiply();
 
     @Override
     public String toString() {

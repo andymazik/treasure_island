@@ -10,15 +10,4 @@ public class Duck extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
-
-
-    public void eat(Caterpillar caterpillar) {
-
-    }
-
 }

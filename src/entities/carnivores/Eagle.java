@@ -9,8 +9,4 @@ public class Eagle extends Carnivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
 }

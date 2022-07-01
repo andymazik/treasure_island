@@ -11,8 +11,4 @@ public class Deer extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
 }

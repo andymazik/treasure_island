@@ -8,9 +8,4 @@ public class Mouse extends Herbivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
 }

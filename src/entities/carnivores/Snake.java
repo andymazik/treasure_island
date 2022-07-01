@@ -11,9 +11,4 @@ public class Snake extends Carnivore{
         super(fields);
     }
 
-    @Override
-    public void multiply() {
-
-    }
-
 }

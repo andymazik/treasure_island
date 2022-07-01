@@ -29,35 +29,5 @@ public class Runner {
             gameField.printInfo();
         }
 
-//        Cell cell = GameField.field[0][0];
-//        Map<Organism, Set<Alive>> map = cell.sets;
-//        System.out.println(map);
-//
-//        System.out.println("values: " + map.values());
-//        for (Set<Alive> value : map.values()) {
-//            System.out.println("current value: " + value);
-//            for (Alive alive : value) {
-//                System.out.print("current animal: " + alive + " // ");
-//                //System.out.print(" " + Organism.valueOf(alive.getClass().getSimpleName().toUpperCase()).ordinal());
-//                System.out.println(" " + alive.getClass().getSimpleName());
-//                int currentProbability = GamePreferences.getInstance().getProbabilities()[Organism.valueOf(alive.getClass().getSimpleName().toUpperCase()).ordinal()][Organism.valueOf("SHEEP").ordinal()];
-//                //System.out.println(alive.getClass().getSimpleName() + " cъедает овцу с вероятносью " + currentProbability);
-//            }
-//        }
-
-
-
-//        while (true) {
-//            int randomNum;
-//            System.out.print(randomNum = ThreadLocalRandom.current().nextInt(10));
-//            Thread.sleep(500);
-//
-//            if (randomNum < GamePreferences.getInstance().getProbabilities()[1][7]/10) {
-//                System.out.println(" съел");
-//            } else {
-//                System.out.println(" убежал");
-//            }
-//        }
-
     }
 }
