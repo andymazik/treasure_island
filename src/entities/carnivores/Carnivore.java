@@ -23,7 +23,8 @@ public abstract class Carnivore extends Alive {
             //Создаем случайное число
             randomNum = ThreadLocalRandom.current().nextInt(10);
             //Если данное случайное число меньше вероятностного предела из настроек животного деленного на 10, то поедаем жертву(т.е. удаляем текущий объект из коллекции)
-            if (randomNum < GamePreferences.getInstance().getProbabilities()[Organism.valueOf(this.getClass().getSimpleName().toUpperCase()).ordinal()][Organism.valueOf(alive.getClass().getSimpleName().toUpperCase()).ordinal()]/10) {
+            int currentProbability = GamePreferences.getInstance().getProbabilities()[Organism.valueOf(this.getClass().getSimpleName().toUpperCase()).ordinal()][Organism.valueOf(alive.getClass().getSimpleName().toUpperCase()).ordinal()];
+            if (randomNum < currentProbability) {
                 iterator.remove();
                 //System.out.println("REMOVED");
             }
